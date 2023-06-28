@@ -37,6 +37,22 @@ class LogisticRegression:
             individual_loss.append(loss)
         return individual_loss
 
+    def train_neural_net(self, features, targets):  # uses gradient descent
+        epoch_loss = []
+        for e in range(self.epochs):
+            individual_loss = self.initialize_neural_net(features, targets)
+    
+            for feature, target, loss in zip(features, targets, individual_loss):
+                weighted_sum = self.calc_weighted_sum(feature)
+                prediction = self.calc_sigmoid(weighted_sum)
+    
+                self.weights = self.update_weights(target, prediction, feature)
+                self.bias = self.update_bias(target, prediction)
+    
+            average_loss = sum(individual_loss) / len(individual_loss)
+            epoch_loss.append(average_loss)
+        return epoch_loss
+
 if __name__ == '__main__':
     from customers import *
 
