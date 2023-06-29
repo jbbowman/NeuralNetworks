@@ -1,4 +1,4 @@
-# NeuralNetworksIntro
+# NeuralNetworks
 
 ## Background
 The following repository describes how to build and train a machine learning algorithm. I will do this with a logistic regression model, which can be seen as a simple, single-layer neural network with one neuron (or perceptron).
